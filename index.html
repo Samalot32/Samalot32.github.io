@@ -28,7 +28,11 @@
                 Your browser does not support HTML5 video.
             </video>
         
-
+            <div id="mic">
+                <input type="button" value="MIC" id = "SpeechToText" onclick="runSpeechRecognition()"/>
+                <p id="MicText" >Click the button to start talking to Clera!</p>
+            </div>
+            <div class="micArea"></div>
             <!-- Landscape version Kiosk 2 
             <video autoplay id="myVideo" autoplay poster="Cleraposter.png" onended="switchIdle()">
                 <source src="videos/idle.mp4"

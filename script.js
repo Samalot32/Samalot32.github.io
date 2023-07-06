@@ -63,4 +63,87 @@ function redirectPage() {
 
 // Sammy Stuff
 
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var recognition = new SpeechRecognition();
+/*
+function runSpeechRecognition() {
+    
+    document.getElementById("myVideo").pause();
+    switchIdle();
+    // get output div reference
+    var button = document.getElementById("SpeechToText");
+    // get action element reference
+    var action = document.getElementById("MicText");
+    // new speech recognition object
+    
+    // This runs when the speech recognition service starts
+    recognition.onstart = function() {
+        button.classList.add('pulse');
+        action.innerHTML = "Clera is listening! Please speak.";
+    };
+    
+    recognition.onspeechend = function() {
+        button.classList.remove('pulse');
+        action.innerHTML = "Clera is not listening to you right now.";
+        recognition.stop();
+    }
+  
+    // This runs when the speech recognition service returns result
+    recognition.onresult = function(event) {
+        var transcript = event.results[0][0].transcript;
+        var confidence = event.results[0][0].confidence;
+        dfMessenger.shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input[type="text"]').value = transcript
+        console.log(confidence*100 +"%")
+        sendIt();
+    };
 
+    recognition.onend = function() {
+        // Once speech recognition ends, send the message to Dialogflow
+        var transcript = dfMessenger.shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input[type="text"]').value;
+        sendMessageToDialogflow(transcript);
+      };
+  
+     // start recognition
+     recognition.start();
+    
+} */
+
+function runSpeechRecognition() {
+    document.getElementById("myVideo").pause();
+    switchIdle();
+  
+    var button = document.getElementById("SpeechToText");
+    var action = document.getElementById("MicText");
+  
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+  
+    recognition.onstart = function() {
+      button.classList.add('pulse');
+      action.innerHTML = "Clera is listening! Please speak.";
+    };
+  
+    recognition.onspeechend = function() {
+      button.classList.remove('pulse');
+      action.innerHTML = "Clera is not listening to you right now.";
+      recognition.stop();
+    };
+  
+    recognition.onresult = function(event) {
+      var transcript = event.results[0][0].transcript;
+      var confidence = event.results[0][0].confidence;
+      dfMessenger.shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input[type="text"]').value = transcript;
+      console.log(confidence * 100 + "%");
+      sendIt();
+    };
+  
+    recognition.onend = function() {
+      // Once speech recognition ends, send the message to Dialogflow
+      var transcript = dfMessenger.shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input[type="text"]').value;
+      sendMessageToDialogflow(transcript);
+    };
+  
+    recognition.start();
+  }
+  

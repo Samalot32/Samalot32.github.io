@@ -37,3 +37,32 @@ body {
   cursor: pointer;
   zoom: 2.5;
 }
+
+#SpeechToText {
+  border-radius: 50% !important;
+  height: 70px;
+  width: 70px;
+  background-color: lightblue;
+  margin-right: 10px;
+}
+
+#SpeechToText:hover {
+  transform: scale(1.1);
+}
+
+#SpeechToText.pulse {
+  background: lightblue;
+  box-shadow: 0 0 0 0 lightblue;
+  animation: pulse-red 2s infinite;
+}
+#mic {
+  width: 25%;
+  max-height: 50%;
+  padding-left: 1%;
+  padding-top: 1%;
+  transform: translate(30px, 20px);
+  display: flex;
+  align-items: center;
+  font: bold large sans-serif;
+
+}
