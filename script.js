@@ -133,8 +133,6 @@ function runSpeechRecognition() {
       sendIt();
     };
   
-    recognition.start();
-
     function sendIt() {
         console.log("IN SEND IT")
         var box = dfMessenger.shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input[type="text"]')
