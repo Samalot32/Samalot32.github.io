@@ -115,10 +115,6 @@ function runSpeechRecognition() {
     var button = document.getElementById("SpeechToText");
     var action = document.getElementById("MicText");
   
-    var recognition = new webkitSpeechRecognition();
-    recognition.continuous = false;
-    recognition.interimResults = false;
-  
     recognition.onstart = function() {
       button.classList.add('pulse');
       action.innerHTML = "Clera is listening! Please speak.";
@@ -138,11 +134,6 @@ function runSpeechRecognition() {
       sendIt();
     };
   
-    recognition.onend = function() {
-      // Once speech recognition ends, send the message to Dialogflow
-      var transcript = dfMessenger.shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input[type="text"]').value;
-      sendMessageToDialogflow(transcript);
-    };
   
     recognition.start();
   }
