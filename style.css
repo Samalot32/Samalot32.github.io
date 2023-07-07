@@ -44,12 +44,12 @@ body {
   width: 70px;
   background-color: lightblue;
   margin-right: 10px;
-  zoom: 2.0;
+  zoom: 2.5;
 }
 
 #SpeechToText:hover {
   transform: scale(1.1);
-  zoom: 2.0;
+  zoom: 2.5;
 }
 
 #SpeechToText.pulse {
