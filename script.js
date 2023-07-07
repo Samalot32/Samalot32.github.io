@@ -134,4 +134,19 @@ function runSpeechRecognition() {
     };
   
     recognition.start();
+
+    function sendIt() {
+        console.log("IN SEND IT")
+        var box = dfMessenger.shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input[type="text"]')
+        box.focus();
+        const event = new KeyboardEvent("keypress", {
+            view: window,
+            keyCode: 13,
+            bubbles: true,
+            cancelable: true
+        });
+        box.dispatchEvent(event);
+    }
+  
+    recognition.start();
   }

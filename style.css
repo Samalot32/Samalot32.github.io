@@ -44,16 +44,19 @@ body {
   width: 70px;
   background-color: lightblue;
   margin-right: 10px;
+  zoom: 2.0;
 }
 
 #SpeechToText:hover {
   transform: scale(1.1);
+  zoom: 2.0;
 }
 
 #SpeechToText.pulse {
   background: lightblue;
   box-shadow: 0 0 0 0 lightblue;
   animation: pulse-red 2s infinite;
+  zoom: 2.0;
 }
 #mic {
   width: 25%;
@@ -61,8 +64,8 @@ body {
   padding-left: 1%;
   padding-top: 1%;
   transform: translate(30px, 20px);
-  display: flex;
+  display: absolute;
   align-items: center;
   font: bold large sans-serif;
-
+  zoom: 2.0;
 }
